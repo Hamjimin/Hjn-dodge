@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody playerRigidbody;
     public float speed = 8f;
 
+    public int hp = 100;
+    public HPBar hpbar;
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();    
@@ -14,22 +16,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //if(Input.GetKey(KeyCode.UpArrow) == true)
-        //{
-        //    playerRigidbody.AddForce(0f, 0f, speed);
-        //}
-        //if (Input.GetKey(KeyCode.DownArrow) == true)
-        //{
-        //    playerRigidbody.AddForce(0f, 0f, -speed);
-        //}
-        //if (Input.GetKey(KeyCode.RightArrow) == true)
-        //{
-        //    playerRigidbody.AddForce(speed, 0f, 0f);
-        //}
-        //if (Input.GetKey(KeyCode.LeftArrow) == true)
-        //{
-        //    playerRigidbody.AddForce(-speed, 0f, 0f);
-        //}
         float xInput = Input.GetAxis("Horizontal");
         float zInput = Input.GetAxis("Vertical");
 
@@ -40,7 +26,16 @@ public class PlayerController : MonoBehaviour
         playerRigidbody.velocity = newVelocity;
     }
 
-    public void Die()
+    public void GetDamage(int damage)
+    {
+        hp -= damage;
+        hpbar.SetHp(hp);
+        if(hp <= 0)
+        {
+            Die();
+        }
+    }
+    void Die()
     {
         gameObject.SetActive(false);
 
