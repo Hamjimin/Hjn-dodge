@@ -26,6 +26,15 @@ public class PlayerController : MonoBehaviour
         playerRigidbody.velocity = newVelocity;
     }
 
+    public void GetHeal(int heal)
+    {
+        hp += heal;
+        if(hp > 100)
+        {
+            hp = 100;
+        }
+        hpbar.SetHp(hp);
+    }
     public void GetDamage(int damage)
     {
         hp -= damage;

@@ -458,6 +458,8 @@ MonoBehaviour:
   level: {fileID: 1772564653}
   bulletSpawnerPrefab: {fileID: 4671035778343015782, guid: 3911ba1574e4c9c4a8fdf1019b9d7967,
     type: 3}
+  itemPrefab: {fileID: 2759946381310884316, guid: 9b823da2e7248094484b89319915ad5c,
+    type: 3}
 --- !u!4 &509153320
 Transform:
   m_ObjectHideFlags: 0
@@ -1111,7 +1113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250764377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.6, z: 0}
+  m_LocalPosition: {x: 0, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
