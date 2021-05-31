@@ -6,9 +6,17 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody playerRigidbody;
     public float speed = 8f;
+    public float rotSpeed = 120.0f;
+
+    private Transform tr;
 
     public int hp = 100;
     public HPBar hpbar;
+
+    private float spawmRate = 0.2f;
+    private float timerAfterSpawn;
+    public GameObject playerbulletPrefab;
+
     void Start()
     {
         playerRigidbody = GetComponent<Rigidbody>();    
@@ -24,6 +32,13 @@ public class PlayerController : MonoBehaviour
 
         Vector3 newVelocity = new Vector3(xSpeed, 0f, zSpeed);
         playerRigidbody.velocity = newVelocity;
+        timerAfterSpawn += Time.deltaTime;
+
+        if(Input.GetButton("Fire1") && timerAfterSpawn >= spawmRate)
+        {
+            timerAfterSpawn = 0;
+            GameObject bullet = Instantiate(playerbulletPrefab, transform.position, transform.rotation);
+        }
     }
 
     public void GetHeal(int heal)

@@ -11,7 +11,17 @@ public class BulletSpawner : MonoBehaviour
     private Transform target;
     private float spawnRate;
     private float timeAfterSpawn;
-    // Start is called before the first frame update
+
+    public int hp = 100;
+
+    public void GetDamage(int damage)
+    {
+        hp -= damage;
+        if(hp <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
     void Start()
     {
         timeAfterSpawn = 0f;
