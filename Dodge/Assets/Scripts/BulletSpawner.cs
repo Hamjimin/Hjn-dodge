@@ -13,10 +13,12 @@ public class BulletSpawner : MonoBehaviour
     private float timeAfterSpawn;
 
     public int hp = 100;
-
+    public HPBar hpbar;
+    public GameObject level;
     public void GetDamage(int damage)
     {
         hp -= damage;
+        hpbar.SetHp(hp);
         if(hp <= 0)
         {
             gameObject.SetActive(false);
